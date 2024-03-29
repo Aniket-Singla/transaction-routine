@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: routine
+  r2dbc:
+    driver-class-name: org.postgresql.Driver
+    url: r2dbc:postgresql://test:test@localhost:5432/transaction-routine
+  liquibase:
+    change-log: classpath:db/changelog/manifest.yml

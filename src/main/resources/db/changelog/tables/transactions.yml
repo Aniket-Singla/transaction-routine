@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: aniket
+      changes:
+        - createTable:
+            tableName: transactions
+            schemaName: routine
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: account_id
+                  type: uuid
+                  constraints:
+                    referencedTableName: accounts
+                    referencedColumnNames: id
+                    referencedTableSchemaName: routine
+                    foreignKeyName: fk_transactions_account_id

@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_R2DBC_URL=r2dbc:postgresql://postgres:postgres@routine-postgresql:5432/transaction-routine
+      - SPRING_LIQUIBASE_URL=jdbc:postgresql://routine-postgresql:5432/transaction-routine?user=postgres&password=postgres
+    ports:
+      - "127.0.0.1:8080:8080"
+  routine-postgresql:
+    build: postgres/
+    volumes:
+     - db:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=transaction-routine
+#      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - "127.0.0.1:63432:5432"
+volumes:
+  db:
+
