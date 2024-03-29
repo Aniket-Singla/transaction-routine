@@ -1,23 +1,26 @@
 package com.tech.routine.domain;
 
+import com.tech.routine.enums.TransactionType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.domain.Persistable;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.UUID;
 
-@Table
+@Table(name = "transactions")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Transaction {
+public class Transaction implements Persistable<UUID> {
 
     @Id
     private UUID id;
@@ -26,4 +29,12 @@ public class Transaction {
     private BigDecimal amount;
     @CreatedDate
     private Instant createdAt;
+
+    @Transient
+    private boolean whetherNew = false;
+
+    @Override
+    public boolean isNew() {
+        return whetherNew;
+    }
 }

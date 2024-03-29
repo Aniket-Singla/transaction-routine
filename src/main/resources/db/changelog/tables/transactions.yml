@@ -27,6 +27,8 @@ databaseChangeLog:
                   name: amount
                   type: numeric(20, 10)
               - column:
-                  name: createdAt
+                  name: created_at
                   type: timestamp
+                  constraints:
+                    nullable: false
 

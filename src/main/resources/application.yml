@@ -4,8 +4,11 @@ spring:
   r2dbc:
     driver-class-name: org.postgresql.Driver
     url: ${SPRING_R2DBC_URL}
+#    properties:
+#      schema: routine
   liquibase:
     change-log: classpath:db/changelog/manifest.yml
+    default-schema: routine
   jackson:
     property-naming-strategy: SNAKE_CASE
 

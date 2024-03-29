@@ -2,7 +2,7 @@ package com.tech.routine.dto;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.tech.routine.domain.TransactionType;
+import com.tech.routine.enums.TransactionType;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 
@@ -18,6 +18,7 @@ public record TransactionDTO(
         UUID accountId,
         @NotNull
         BigDecimal amount,
+        @NotNull
         TransactionType type,
         Instant createdAt
 ) {
