@@ -15,3 +15,5 @@ databaseChangeLog:
               - column:
                   name: document_number
                   type: varchar(50)
+                  constraints:
+                    unique: true

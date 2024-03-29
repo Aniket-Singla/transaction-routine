@@ -1,0 +1,5 @@
+docker stop transaction_routine_db transaction_routine
+docker rm transaction_routine_db transaction_routine
+
+docker volume rm routine_db
+docker image rm transaction_routine

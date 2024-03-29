@@ -20,3 +20,13 @@ databaseChangeLog:
                     referencedColumnNames: id
                     referencedTableSchemaName: routine
                     foreignKeyName: fk_transactions_account_id
+              - column:
+                  name: type
+                  type: int
+              - column:
+                  name: amount
+                  type: numeric(20, 10)
+              - column:
+                  name: createdAt
+                  type: timestamp
+
