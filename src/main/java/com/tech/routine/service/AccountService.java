@@ -7,7 +7,19 @@ import java.util.UUID;
 
 public interface AccountService {
 
+    /**
+     * Create Account for given Data
+     *
+     * @param account AccountDTO
+     * @return AccountDTO
+     */
     Mono<AccountDTO> create(AccountDTO account);
 
+    /**
+     * Get Account by Id
+     *
+     * @param id Identifier
+     * @return Account
+     */
     Mono<AccountDTO> getById(UUID id);
 }
