@@ -31,4 +31,19 @@ databaseChangeLog:
                   type: timestamp
                   constraints:
                     nullable: false
+  - changeSet:
+      id: 2
+      author: aniket
+      changes:
+        - addColumn:
+            tableName: transactions
+            schemaName: routine
+            columns:
+              - column:
+                  name: balance
+                  type: numeric(20, 10)
+              - column:
+                  name: version
+                  type: int4
+
 
