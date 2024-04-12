@@ -37,12 +37,12 @@ class TransactionServiceImplTest {
 
 
     @Test
-    void create_expectSuccess() {
+    void create__whenDebit_expectSuccess() {
         var accountId = UUID.randomUUID();
         var transaction = TransactionDTO.builder()
                 .accountId(accountId)
-                .amount(new BigDecimal(10))
-                .type(TransactionType.CREDIT_VOUCHER).build();
+                .amount(new BigDecimal(-10))
+                .type(TransactionType.WITHDRAWL).build();
         Mockito.when(accountService.getById(any(UUID.class))).thenReturn(Mono.just(AccountDTO.builder().build()));
         Mockito.when(transactionRepository.save(any()))
                 .thenAnswer(invocation -> {
